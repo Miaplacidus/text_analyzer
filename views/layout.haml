@@ -1,0 +1,22 @@
+!!!
+%html
+    %head
+        %title Frequency Analysis
+        %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Abel" }
+        %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=PT+Serif" }
+
+        %link{ rel: "stylesheet", href: "stylesheets/styles.css" }
+
+    %body
+        %header
+            %h1 Text Analyzer
+            .intro Returns the 25 most frequently used words in a text document along with the number of occurrences of each.
+            - unless request.path_info == "/text_analyses"
+                .most-recent-analyses-link
+                    %a{ class:"most-recent-analyses", href: url("/text_analyses") } View 10 most recent analyses
+
+        #content
+            =yield
+
+        %footer
+            %a{href: "https://www.github.com/miaplacidus"} Github repo

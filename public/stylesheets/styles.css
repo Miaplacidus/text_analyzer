@@ -1,0 +1,38 @@
+body {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+header h1 {
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+}
+
+header .intro {
+    margin-bottom: 0.5em;
+}
+
+header .intro, header .most-recent-analyses-link {
+    text-align: center;
+}
+
+.file-upload-form, .intro, .most-recent-analyses-link {
+    font-family: 'PT Serif', sans-serif;
+}
+
+a.most-recent-analyses {
+    color: black;
+    text-decoration: underline;
+}
+
+.file-upload-form fieldset {
+    border: none;
+}

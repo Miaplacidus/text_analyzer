@@ -1,0 +1,4 @@
+- @text_analyses.each do |text_analysis|
+    %p= text_analysis.file_name
+    - text_analysis.frequencies.sort_by{ |key, value| value }.reverse.each do |freq|
+        %p= "#{freq[0]}: #{freq[1]}"

@@ -1,0 +1,11 @@
+.file-upload-form
+    %form{ action: "text_analyses", method: "post", enctype: "multipart/form-data"}
+        %fieldset
+            %label{ for: "text_file" } Upload Text File (plaintext or pdf)
+            %input{ type: "file", name: "text_file"}
+
+        %fieldset
+            %label{ for: "exclude_stop_words" } Exclude Common Stopwords
+            %input{ type: "checkbox", name: "exclude_stop_words", checked: true}
+
+        %input{ name: "submit", type: "submit", value: "Upload"}
