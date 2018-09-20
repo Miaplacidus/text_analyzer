@@ -1,10 +1,15 @@
 require "sinatra"
 require "sinatra/activerecord"
 require "pdf-reader"
+require "sass"
 
 set :database, { adapter: 'postgresql', database: 'coding_challenge', encoding: 'unicode', pool: 2 }
 
 Dir["#{Dir.pwd}/models/*.rb"].each { |file| require file }
+
+get "/styles.css" do
+    sass :styles
+end
 
 get '/' do
     haml :new

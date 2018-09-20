@@ -8,6 +8,7 @@ gem "pdf-reader"
 gem "pg"
 gem "pry"
 gem "rake"
+gem "sass"
 gem "sinatra"
 gem "sinatra-activerecord"
 

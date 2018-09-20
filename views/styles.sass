@@ -1,0 +1,51 @@
+body
+    padding-left: 2em
+    padding-right: 2em
+    padding-top: 1em
+
+    font-family: 'PT Serif', sans-serif
+
+    hr
+        width: 50%
+
+    a
+        color: black
+        text-decoration: underline
+
+    header
+        display: flex
+        flex-direction: column
+        justify-content: center
+        margin-bottom: 2em
+
+        h1
+            font-family: 'Abel', sans-serif
+            text-align: center
+
+        .intro
+            margin-bottom: 0.5em
+
+        .intro, div.most-recent-analyses
+            text-align: center
+
+    #content
+        .file-upload-form
+            display: flex
+            flex-direction: column
+            align-items: center
+            padding: 2.5em
+
+            fieldset
+                border: none
+
+                &.upload-file label
+                    margin-right: 0.5em
+
+                input[type="submit"]
+                    border-radius: 10%
+                    padding: 0.5em
+                    font-size: 0.8em
+
+    footer
+        .github-repo
+            text-align: center
