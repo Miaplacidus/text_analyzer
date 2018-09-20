@@ -42,7 +42,7 @@ private
 def get_file_content(file, file_type)
     if file_type.match?(/\.pdf\z/)
         pdf_text(file)
-    elsif file_type.match?(/\plain\z/)
+    elsif file_type.match?(/plain\z/)
         file.read
     else
         nil
