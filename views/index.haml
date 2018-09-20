@@ -2,7 +2,7 @@
     - @text_analyses.each do |text_analysis|
         .text-analysis
             %p.filename= "filename: #{text_analysis.file_name}"
-            %p.exclude-stopwords= "exclude stopwords: #{text_analysis.exclude_stop_words}"
+            %p.exclude-stopwords= "exclude stopwords: #{text_analysis.exclude_stopwords}"
 
             .frequencies
                 - text_analysis.frequencies.sort_by{ |key, value| value }.reverse.each do |freq|

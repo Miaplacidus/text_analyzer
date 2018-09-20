@@ -1,8 +1,8 @@
-RSpec.shared_examples "text_analysis" do |exclude_stop_words|
+RSpec.shared_examples "text_analysis" do |exclude_stopwords|
   let(:text_analysis_attrs){{
       file_name: "test_file.txt",
       frequencies: {},
-      exclude_stop_words: exclude_stop_words
+      exclude_stopwords: exclude_stopwords
   }}
 
   let(:file_content){
@@ -10,7 +10,7 @@ RSpec.shared_examples "text_analysis" do |exclude_stop_words|
   }
 
 # includes error for words "foe"/"foes", "love"/"loves", "hope"/"hoped"
-  let(:freq_with_stop_words){
+  let(:freq_with_stopwords){
       {
           "cry" => 2,
           "scurry" => 2,
@@ -40,7 +40,7 @@ RSpec.shared_examples "text_analysis" do |exclude_stop_words|
       }
   }
 
-  let(:freq_sans_stop_words){
+  let(:freq_sans_stopwords){
       {
           "cry" => 2,
           "scurry" => 2,
@@ -69,15 +69,15 @@ RSpec.shared_examples "text_analysis" do |exclude_stop_words|
   }
 
   it "returns the count of words with the same stem" do
-      freq = exclude_stop_words ? freq_sans_stop_words : freq_with_stop_words
+      freq = exclude_stopwords ? freq_sans_stopwords : freq_with_stopwords
       text_analysis_attrs.merge!({ file_content: file_content })
       text_analysis = TextAnalysis.create(text_analysis_attrs)
       expect(text_analysis.frequencies).to eq(freq)
   end
 
   it "returns a maximum of 25 words" do
-      freq = exclude_stop_words ? freq_sans_stop_words : freq_with_stop_words
-      num_words = exclude_stop_words ? 23 : 25
+      freq = exclude_stopwords ? freq_sans_stopwords : freq_with_stopwords
+      num_words = exclude_stopwords ? 23 : 25
       text_analysis_attrs.merge!({ file_content: file_content })
       text_analysis = TextAnalysis.create(text_analysis_attrs)
       expect(text_analysis.frequencies.size).to eq(num_words)
@@ -87,13 +87,13 @@ RSpec.shared_examples "text_analysis" do |exclude_stop_words|
       seconds_in_day = 86400
 
       12.times do |i|
-          freq = exclude_stop_words ? freq_sans_stop_words : freq_with_stop_words
+          freq = exclude_stopwords ? freq_sans_stopwords : freq_with_stopwords
           text_analysis_attrs.merge!({ file_content: file_content })
           text_analysis = TextAnalysis.create(text_analysis_attrs.merge(created_at: Time.now - (i + 1) * seconds_in_day))
       end
 
       expect(TextAnalysis.count).to eq(10)
-      
+
       created_most_recently = TextAnalysis.pluck(:created_at).all?{ |time| time > Time.now - 11 * seconds_in_day}
       expect(created_most_recently).to eq(true)
   end

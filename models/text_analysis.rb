@@ -36,7 +36,7 @@ class TextAnalysis < ActiveRecord::Base
 
     def calculate_frequencies
         file_content.split(/[^a-zA-Z0-9_']/).each do |word|
-            next if (exclude_stop_words? && is_stopword?(word))
+            next if (exclude_stopwords? && is_stopword?(word))
             stem =
             case
             when word.match(/(\w*)(ies\z)/)

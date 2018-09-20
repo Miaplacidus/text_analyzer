@@ -22,9 +22,9 @@ post '/text_analyses' do
     file_name = file_params[:filename]
     file_type = file_params[:type]
 
-    exclude_stop_words = params[:exclude_stop_words] == "on" ? true : false
+    exclude_stopwords = params[:exclude_stopwords] == "on" ? true : false
 
-    text_analysis = TextAnalysis.create({file_name: file_name, file_content: get_file_content(file, file_type), frequencies: {}, exclude_stop_words: exclude_stop_words})
+    text_analysis = TextAnalysis.create({file_name: file_name, file_content: get_file_content(file, file_type), frequencies: {}, exclude_stopwords: exclude_stopwords})
     redirect to("/text_analyses/#{text_analysis.id}")
 end
 

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_200625) do
 
   create_table "text_analyses", force: :cascade do |t|
     t.string "file_name"
-    t.boolean "exclude_stop_words", default: true
+    t.boolean "exclude_stopwords", default: true
     t.text "file_content"
     t.jsonb "frequencies", default: {}
     t.datetime "created_at", null: false
