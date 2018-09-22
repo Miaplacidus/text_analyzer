@@ -51,7 +51,7 @@ end
 
 private
 def get_file_content(file, file_type)
-    if file_type.match?(/\.pdf\z/)
+    if file_type.match?(/pdf\z/)
         pdf_text(file)
     elsif file_type.match?(/plain\z/)
         file.read
@@ -68,5 +68,11 @@ def pdf_text(file)
         text += page.text + "\n"
     end
 
-    text
+    text.split.join(" ")
+end
+
+helpers do
+  def partial(page, locals={})
+    haml page, locals.merge!(:layout => false)
+  end
 end
