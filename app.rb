@@ -18,19 +18,30 @@ end
 post '/text_analyses' do
     file_params = params[:text_file]
 
-    file = file_params[:tempfile]
-    file_name = file_params[:filename]
-    file_type = file_params[:type]
+    if file_params.nil?
+        redirect to("/")
+    else
+        file = file_params[:tempfile]
+        file_name = file_params[:filename]
+        file_type = file_params[:type]
+        exclude_stopwords = params[:exclude_stopwords] == "on" ? true : false
 
-    exclude_stopwords = params[:exclude_stopwords] == "on" ? true : false
+        text_analysis = TextAnalysis.create({ file_name: file_name, file_content: get_file_content(file, file_type), frequencies: {}, exclude_stopwords: exclude_stopwords })
 
-    text_analysis = TextAnalysis.create({file_name: file_name, file_content: get_file_content(file, file_type), frequencies: {}, exclude_stopwords: exclude_stopwords})
-    redirect to("/text_analyses/#{text_analysis.id}")
+        TextAnalysis.order(created_at: :asc).first.destroy if TextAnalysis.count > 10
+
+        redirect to("/text_analyses/#{text_analysis.id}")
+    end
 end
 
 get '/text_analyses/:id' do
-    @text_analysis = TextAnalysis.find(params[:id])
-    haml :show
+    @text_analysis = TextAnalysis.find_by_id(params[:id])
+
+    if @text_analysis
+        haml :show
+    else
+        redirect to("/")
+    end
 end
 
 get '/text_analyses' do
