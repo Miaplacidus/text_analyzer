@@ -28,8 +28,6 @@ post '/text_analyses' do
 
         text_analysis = TextAnalysis.create({ file_name: file_name, file_content: get_file_content(file, file_type), frequencies: {}, exclude_stopwords: exclude_stopwords })
 
-        TextAnalysis.order(created_at: :asc).first.destroy if TextAnalysis.count > 10
-
         redirect to("/text_analyses/#{text_analysis.id}")
     end
 end
