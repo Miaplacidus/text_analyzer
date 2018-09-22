@@ -1,9 +1,4 @@
 .text-analyses
     - @text_analyses.each do |text_analysis|
-        .text-analysis
-            %p.filename= "filename: #{text_analysis.file_name}"
-            %p.exclude-stopwords= "exclude stopwords: #{text_analysis.exclude_stopwords}"
-
-            .frequencies
-                - text_analysis.frequencies.sort_by{ |key, value| value }.reverse.each do |freq|
-                    %p.frequency= "#{freq[0]}: #{freq[1]}"
+        = partial :_text_analysis, locals: { text_analysis: text_analysis }
+        

@@ -1,1 +1,3 @@
-= @text_analysis.file_name
+= partial :_text_analysis, locals: { text_analysis: @text_analysis}
+.file-content
+    = @text_analysis.file_content

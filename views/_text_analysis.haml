@@ -1,0 +1,15 @@
+.text-analysis
+    %p.filename
+        - unless request.path_info.match?(/\d+/)
+            %a{ href: url("/text_analyses/#{text_analysis.id}") }= "filename: #{text_analysis.file_name}"
+        - else
+            = "filename: #{text_analysis.file_name}"
+    %p.uploaded-at= "uploaded at: #{text_analysis.created_at.strftime("%I:%M %P %Z - %B %d, %Y")}"
+    %p.exclude-stopwords= "exclude stopwords: #{text_analysis.exclude_stopwords}"
+
+    .frequencies
+        - text_analysis.frequencies.group_by{ |key, value| value }.sort_by{ |key, value| key }.reverse.each do |freq|
+            .frequency-container
+                %p.count= freq[0]
+                - freq[1].sort_by{|f| f[0]}.each do |word_count|
+                    %p.frequency= "#{word_count[0]}"
