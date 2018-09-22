@@ -1,3 +1,5 @@
+$mobile: 480px
+
 body
     padding-left: 2em
     padding-right: 2em
@@ -21,6 +23,9 @@ body
         h1
             font-family: 'Abel', sans-serif
             text-align: center
+
+            a
+                text-decoration: none
 
         .intro
             margin-bottom: 0.5em
@@ -46,25 +51,41 @@ body
                     padding: 0.5em
                     font-size: 0.8em
 
-        .text-analyses
-            .text-analysis
-                padding: 0.5em
-                margin-bottom: 0.5em
-                border: solid 2px #d9d9d9
+        .text-analysis
+            padding: 1.5em
+            margin-bottom: 0.5em
+            border: solid 2px #d9d9d9
+            border-radius: 5px
 
-                .frequencies
-                    width: 75%
+            .frequencies
+                padding: 0.5em
+
+                .frequency-container
                     display: flex
                     flex-wrap: wrap
 
+                    p.count
+                        padding: 0.5em
+                        border-radius: 5px
+                        background-color: tomato
+                        margin-right: 1.5em
+                        color: white
+
                     p.frequency
                         background-color: #d9d9d9
-                        margin-right: 0.5em
+                        margin-right: 0.7em
                         padding: 0.5em
-                        border-radius: 10%
+                        border-radius: 5px
 
 
+        .file-content
+            padding: 1.5em
+            line-height: 1.5em
 
     footer
         .github-repo
             text-align: center
+
+@media screen and (max-width: $mobile)
+    body
+        padding: 0.5em
