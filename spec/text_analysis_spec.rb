@@ -1,7 +1,6 @@
 require_relative "../models/text_analysis.rb"
 require_relative "./shared_examples.rb"
 require File.expand_path '../spec_helper.rb', __FILE__
-require "pry"
 
 describe TextAnalysis do
     context "including common stopwords" do

@@ -6,7 +6,7 @@ RSpec.shared_examples "text_analysis" do |exclude_stopwords|
   }}
 
   let(:file_content){
-      "cries cry scurry scurries them tree fries goes tomato tree do hero tomatoes tree does hero foes heroes foe foe wolf were wolves love tree leaves isn't loves leaf fizz fizzes tree mix were wash mixes washes harry were tree harried isn't foes clarified clarify very hoped to hope tree play played loves laugh who laughed laugh tree to laughing play i've them carry played hop carrying playing hopped love were them hopping"
+      "cries cry scurry scurries. them tree fries? goes tomato tree do hero Tomatoes tree does hero foes heroes foe foe wolf were wolves love tree leaves isn't loves leaf Fizz fizzes tree mix. were wash mixes washes harry were tree harried isn't foes! clarified clarify very! hoped to hope tree play played loves laugh who  Laughed laugh tree to laughing play i've them carry played hop carrying playing hopped love were them hopping"
   }
 
 # includes error for words "foe"/"foes", "love"/"loves", "hope"/"hoped"
