@@ -11,7 +11,7 @@ class TextAnalysis < ActiveRecord::Base
     def limit_text_analysis_records
         num_records = TextAnalysis.count
         if num_records > 10
-            TextAnalysis.order(created_at: :asc).first.destroy
+            TextAnalysis.order(created_at: :asc).first.delete
         end
     end
 
