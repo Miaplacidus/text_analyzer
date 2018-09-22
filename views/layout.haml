@@ -9,11 +9,15 @@
 
     %body
         %header
-            %h1 Text Analyzer
+            %h1
+                %a{ href: url("/") } Text Analyzer
             .intro Returns the 25 most frequently used words in a text document along with the number of occurrences of each.
             - unless request.path_info == "/text_analyses"
                 .most-recent-analyses
                     %a{ class:"most-recent-analyses", href: url("/text_analyses") } View 10 most recent analyses
+            - else
+                %div
+                    %br
 
         #content
             %hr
