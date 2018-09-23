@@ -42,21 +42,21 @@ class TextAnalysis < ActiveRecord::Base
 
             stem =
             case
-            when word.match(/(\w*)(ies\z)/)
+            when word.match(/(\w+)(ies\z)/)
                 ies_case($1)
-            when word.match(/(\w*)(oes\z)/)
+            when word.match(/(\w+)(oes\z)/)
                 oes_case($1)
-            when word.match(/(\w*)(ves\z)/)
+            when word.match(/(\w+)(ves\z)/)
                 ves_case($1)
-            when word.match(/(\w*)(es\z)/)
+            when word.match(/(\w+)(es\z)/)
                 es_case($1)
-            when word.match(/(\w*)(ied\z)/)
+            when word.match(/(\w+)(ied\z)/)
                 ied_case($1)
-            when word.match(/(\w*)(ed\z)/)
+            when word.match(/(\w+)(ed\z)/)
                 ed_case($1)
-            when word.match(/(\w*)(ing\z)/)
+            when word.match(/(\w+)(ing\z)/)
                 ing_case($1)
-            when word.match(/(\w*)(s\z)/)
+            when word.match(/(\w+)(s\z)/)
                 word.chop
             else
                 word
