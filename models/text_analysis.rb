@@ -1,5 +1,4 @@
 require "active_record"
-require "pry"
 
 class TextAnalysis < ActiveRecord::Base
     validates :file_name, :file_content, presence: true
